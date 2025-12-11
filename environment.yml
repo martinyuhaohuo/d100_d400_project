@@ -1,0 +1,11 @@
+name: yelp_predict
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - polars
+  - pandas
+  - jupyter
+  - matplotlib
+  - seaborn
+prefix: /opt/anaconda3/envs/default_prediction
