@@ -1,7 +1,7 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks #github repo of pre-commit package
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks: #these hooks are necessary
       - id: trailing-whitespace
@@ -20,10 +20,6 @@ repos:
         files: ^yelp_predict/
         additional_dependencies: [types-seaborn, polars, pandas-stubs, matplotlib]
         args: ["--ignore-missing-imports", "--strict"]
-  #- repo: https://github.com/kynan/nbstripout #this hook strip out juypter notebook output
-    #rev: 0.7.1
-    #hooks:
-      #- id: nbstripout
   - repo: https://github.com/psf/black #this hook conduct automatic formating
     rev: 25.12.0
     hooks:

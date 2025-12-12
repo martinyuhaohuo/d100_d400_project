@@ -2,13 +2,12 @@
 requires = ["setuptools", "wheel", "setuptools_scm"]  # Build requirements
 # setuptools for compiling package into distribution
 # setuptools_scm for automatic dyanmic versioning based on git tag
-# can easily install them to virtual env through pip install setuptools wheel setuptools_scm
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "yelp_predict" # name here must match my_package_core name
-dynamic = ["version"] # we set version as dyanmic as we are using setuptools_scm
-description = "some description on package purpose"
+name = "yelp_predict"
+dynamic = ["version"]
+description = "this package provides function/classes needed for the yelp restaurant rating prediction project"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { file = "LICENSE" }
@@ -24,13 +23,12 @@ classifiers = [
 
 # Runtime dependencies, can also specifiy outside package version here
 dependencies = [
-    "pandas",
-    "polars"
+    "pandas"
 ]
 
 [project.urls]
-"Source" = "https://github.com/yourusername/companies_package"
-"Issues" = "https://github.com/yourusername/companies_package/issues"
+"Source" = "https://github.com/martinyuhaohuo/d100_d400_project"
+"Issues" = "https://github.com/martinyuhaohuo/d100_d400_project/issues"
 
 
 [tool.setuptools_scm]
