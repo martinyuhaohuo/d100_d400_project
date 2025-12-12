@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 from pandas.testing import assert_frame_equal
-from yelp_predict.data_loading import expand_nested
+from yelp_predict.data_wrangling import expand_nested, expand_cats
 
 
 @pytest.fixture
@@ -62,6 +62,47 @@ def expanded_frame():
     )
 
 
-def test_load_expand(nested_frame, expanded_frame):
+@pytest.fixture
+def cat_list_frame():
+    return pd.DataFrame(
+        {
+            "A": [1, 2, 3, 4, 5],
+            "B": [5, 4, 3, 2, 1],
+            "C": [
+                "Large, Medium, Small",
+                "Large, Small",
+                "Large",
+                None,
+                "Large",
+            ],
+        }
+    )
+
+
+@pytest.fixture
+def cat_dummy_frame():
+    return pd.DataFrame(
+        {
+            "A": [1, 2, 3, 4, 5],
+            "B": [5, 4, 3, 2, 1],
+            "C": [
+                "Large, Medium, Small",
+                "Large, Small",
+                "Large",
+                None,
+                "Large",
+            ],
+            "Large": [1, 1, 1, 0, 1],
+            "Small": [1, 1, 0, 0, 0],
+        }
+    )
+
+
+def test_expand_nested(nested_frame, expanded_frame):
     result_frame = expand_nested(nested_frame, "C")
     assert_frame_equal(expanded_frame, result_frame, check_dtype=False)
+
+
+def test_expand_cats(cat_list_frame, cat_dummy_frame):
+    result_frame = expand_cats(cat_list_frame, "C", 0.25)
+    assert_frame_equal(cat_dummy_frame, result_frame, check_dtype=False)
