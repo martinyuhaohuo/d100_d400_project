@@ -23,7 +23,12 @@ classifiers = [
 
 # Runtime dependencies, can also specifiy outside package version here
 dependencies = [
-    "pandas"
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "polars",
+    "geopy",
+    "matplotlib"
 ]
 
 [project.urls]

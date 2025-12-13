@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 from pandas.testing import assert_frame_equal
-from yelp_predict.data_wrangling import expand_nested, expand_cats
+from yelp_predict.pre_processing import expand_nested, expand_cats
 
 
 @pytest.fixture

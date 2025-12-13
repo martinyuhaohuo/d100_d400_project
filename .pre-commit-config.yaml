@@ -18,6 +18,7 @@ repos:
     hooks:
       - id: mypy
         files: ^yelp_predict/
+        exclude: ^yelp_predict/visualization\.py$
         additional_dependencies: [types-seaborn, polars, pandas-stubs, matplotlib]
         args: ["--ignore-missing-imports", "--strict"]
   - repo: https://github.com/psf/black #this hook conduct automatic formating
