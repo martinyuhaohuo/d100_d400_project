@@ -214,7 +214,7 @@ def extract_open_close_t(raw: pd.DataFrame) -> pd.DataFrame:
                 expanded.at[index, weekday + "Ct"] = time_interval[1]  # type: ignore[index]
 
     expanded[new_col_name] = expanded[new_col_name].apply(
-        lambda col_name: pd.to_datetime(col_name, format="%H:%M").time()
+        lambda s: (pd.to_datetime(s, format="%H:%M").dt.time)  # type: ignore[attr-defined]
     )
 
     return expanded

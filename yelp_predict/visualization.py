@@ -404,9 +404,7 @@ def plot_dummy_percentages(
     pct = pct.sort_values(ascending=False)
 
     plt.figure(figsize=(14, 6))
-    plt.plot(
-        pct.index, pct.values.to_numpy(), linestyle="-", color="steelblue"
-    )
+    plt.plot(pct.index, pct.values, linestyle="-", color="steelblue")
 
     # Horizontal threshold line
     plt.axhline(
