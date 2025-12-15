@@ -10,7 +10,7 @@ This project aims to predict restaurant rating based on business-level features 
 
 ## Installation
 
-1. cd <project-root>
+1. cd project-root-dir
 2. conda env create -f environment.yml
 3. conda activate yelp_predict
 4. pip install -e .
@@ -21,6 +21,6 @@ This project aims to predict restaurant rating based on business-level features 
 Open and execute the eda_cleaning.ipynb file in the scripts folder, using yelp_predict environment.
 
 ### For model training and evaluation:
-1. cd <project-root>
+1. cd project-root-dir
 2. conda activate yelp_predict
 3. python scripts/model_training.py
