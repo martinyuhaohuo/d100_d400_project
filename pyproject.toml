@@ -1,7 +1,5 @@
 [build-system]
 requires = ["setuptools", "wheel", "setuptools_scm"]  # Build requirements
-# setuptools for compiling package into distribution
-# setuptools_scm for automatic dyanmic versioning based on git tag
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -25,13 +23,16 @@ classifiers = [
 dependencies = [
     "numpy",
     "pandas",
-    "pyarrow",
     "polars",
+    "pyarrow",
+    "glum",
+    "lightgbm",
+    "scikit-learn",
+    "dalex",
     "kaleido",
     "plotly",
-    "scikit-learn",
-    "geopy",
-    "matplotlib"
+    "matplotlib",
+    "geopy"
 ]
 
 [project.urls]
