@@ -27,6 +27,9 @@ dependencies = [
     "pandas",
     "pyarrow",
     "polars",
+    "kaleido",
+    "plotly",
+    "scikit-learn",
     "geopy",
     "matplotlib"
 ]

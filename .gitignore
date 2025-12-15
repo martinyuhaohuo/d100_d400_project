@@ -1,8 +1,15 @@
 # raw data file
-*.json
+data/*.json
 
 # cleaned data
-*.parquet
+data/*.parquet
+
+# model configuration
+configs/*.joblib
+
+# plots
+figures/**/*.png
+figures/**/*.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

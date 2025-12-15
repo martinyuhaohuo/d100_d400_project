@@ -1,6 +1,7 @@
 name: yelp_predict
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - anyio=4.10.0=py312hca03da5_0
   - aom=3.12.1=ha237518_0
@@ -37,6 +38,8 @@ dependencies:
   - certifi=2025.11.12=py312hca03da5_0
   - cffi=2.0.0=py312h73c2a22_1
   - charset-normalizer=3.4.4=py312hca03da5_0
+  - choreographer=1.2.1=pyhcf101f3_0
+  - colorama=0.4.6=pyhd8ed1ab_1
   - comm=0.2.3=py312hca03da5_0
   - contourpy=1.3.3=py312h20e30b6_0
   - cycler=0.11.0=pyhd3eb1b0_0
@@ -44,10 +47,12 @@ dependencies:
   - debugpy=1.8.16=py312h50f4ffc_1
   - decorator=5.2.1=py312hca03da5_0
   - defusedxml=0.7.1=pyhd3eb1b0_0
+  - exceptiongroup=1.3.1=pyhd8ed1ab_0
   - executing=2.2.1=py312hca03da5_0
   - expat=2.7.3=h50f4ffc_4
   - fontconfig=2.15.0=h29935d0_0
   - fonttools=4.61.0=py312haa24f5a_0
+  - formulaic=1.2.1=pyhd8ed1ab_2
   - freetype=2.13.3=h47d26ad_0
   - fribidi=1.0.10=h1a28f6b_0
   - geographiclib=2.1=py312hca03da5_0
@@ -55,6 +60,7 @@ dependencies:
   - gettext=0.21.0=hbdbcc25_2
   - gflags=2.2.2=h313beb8_1
   - glog=0.5.0=h313beb8_1
+  - glum=3.1.2=np2py312he7bfc6a_2
   - graphite2=1.3.14=hc377ac9_1
   - h11=0.16.0=py312hca03da5_1
   - harfbuzz=10.2.0=he637ebf_1
@@ -63,6 +69,8 @@ dependencies:
   - httpx=0.28.1=py312hca03da5_1
   - icu=73.1=h313beb8_0
   - idna=3.11=py312hca03da5_0
+  - iniconfig=2.3.0=pyhd8ed1ab_0
+  - interface_meta=1.3.0=pyhd8ed1ab_1
   - ipykernel=6.31.0=py312h7eb115d_0
   - ipython=9.7.0=py312hca03da5_0
   - ipython_pygments_lexers=1.1.1=py312hca03da5_0
@@ -70,6 +78,7 @@ dependencies:
   - jansson=2.14=h80987f9_1
   - jedi=0.19.2=py312hca03da5_0
   - jinja2=3.1.6=py312hca03da5_0
+  - joblib=1.5.2=pyhd8ed1ab_0
   - jpeg=9f=h2f69dba_0
   - json5=0.12.1=py312hca03da5_0
   - jsonschema=4.25.0=py312hca03da5_1
@@ -91,9 +100,11 @@ dependencies:
   - lerc=4.0.0=h313beb8_0
   - libabseil=20250127.0=cxx17_h313beb8_0
   - libavif=1.3.0=h839b4eb_0
+  - libblas=3.9.0=1_h2ec9a88_netlib
   - libbrotlicommon=1.0.9=h80987f9_9
   - libbrotlidec=1.0.9=h80987f9_9
   - libbrotlienc=1.0.9=h80987f9_9
+  - libcblas=3.9.0=13_hd5b1ab5_netlib
   - libcurl=8.16.0=h01d3526_0
   - libcxx=20.1.8=hd7fd590_1
   - libdeflate=1.22=h80987f9_0
@@ -101,11 +112,14 @@ dependencies:
   - libevent=2.1.12=h02f6b3c_1
   - libexpat=2.7.3=h50f4ffc_4
   - libffi=3.4.4=hca03da5_1
+  - libgfortran=15.2.0=h09d7db9_1
   - libgfortran5=15.2.0=hb654fa1_1
   - libglib=2.84.4=h7a3292d_0
   - libgrpc=1.71.0=h62f6fdd_0
   - libiconv=1.16=h80987f9_3
   - libidn2=2.3.8=h9681e36_0
+  - libjemalloc-local=5.3.0=hf9b8971_1
+  - liblapack=3.9.0=13_ha522803_netlib
   - libnghttp2=1.67.1=h8189af8_0
   - libopenblas=0.3.30=hf2bb037_2
   - libopenjpeg=2.5.4=haa24f5a_1
@@ -113,6 +127,7 @@ dependencies:
   - libprotobuf=5.29.3=h14f15fd_1
   - libre2-11=2024.07.02=h313beb8_0
   - libsodium=1.0.20=h897f8a9_0
+  - libsqlite=3.51.1=h9a5124b_0
   - libssh2=1.11.1=h3e2b118_0
   - libthrift=0.22.0=hbe873a3_0
   - libtiff=4.7.1=h367c460_0
@@ -121,12 +136,14 @@ dependencies:
   - libxml2=2.13.9=h528a072_0
   - libzlib=1.3.1=h5f15de7_0
   - llvm-openmp=20.1.8=he822017_0
+  - logistro=2.0.1=pyhcf101f3_0
   - lz4-c=1.9.4=h313beb8_1
   - markupsafe=3.0.2=py312h80987f9_0
   - matplotlib=3.10.7=py312hca03da5_0
   - matplotlib-base=3.10.7=py312haa222d5_0
   - matplotlib-inline=0.2.1=py312hca03da5_0
   - mistune=3.1.2=py312hca03da5_0
+  - narwhals=2.13.0=pyhcf101f3_0
   - nbclient=0.10.2=py312hca03da5_0
   - nbconvert=7.16.6=py312hca03da5_0
   - nbconvert-core=7.16.6=py312hca03da5_0
@@ -139,8 +156,9 @@ dependencies:
   - numexpr=2.14.1=py312h5fbe615_0
   - numpy=2.3.5=py312h4bb6f22_0
   - numpy-base=2.3.5=py312h23175f9_0
-  - openssl=3.0.18=h9b4081a_0
+  - openssl=3.6.0=h5503f6c_0
   - orc=2.2.0=hec253e6_0
+  - orjson=3.11.4=py312h6ef9ec0_1
   - packaging=25.0=py312hca03da5_1
   - pandas=2.3.3=py312h3f644e9_1
   - pandoc=3.8=hca03da5_0
@@ -152,6 +170,7 @@ dependencies:
   - pip=25.3=pyhc872135_0
   - pixman=0.46.4=h09dc60e_0
   - platformdirs=4.5.0=py312hca03da5_0
+  - pluggy=1.6.0=pyhf9edf01_1
   - polars=1.34.0=py312hd2d2b99_1
   - polars-runtime-32=1.34.0=py312hca03da5_1
   - prometheus_client=0.21.1=py312hca03da5_0
@@ -165,11 +184,15 @@ dependencies:
   - pygments=2.19.2=py312hca03da5_0
   - pyparsing=3.2.5=py312hca03da5_0
   - pysocks=1.7.1=py312hca03da5_1
-  - python=3.12.12=h2bfc596_1
+  - pytest=9.0.2=pyhcf101f3_0
+  - pytest-timeout=2.4.0=pyhd8ed1ab_0
+  - python=3.12.8=h89a136b_0_cpython
   - python-dateutil=2.9.0post0=py312hca03da5_2
   - python-fastjsonschema=2.21.2=py312hca03da5_0
   - python-json-logger=4.0.0=py312hca03da5_0
+  - python-kaleido=1.2.0=pyhcf101f3_0
   - python-tzdata=2025.2=pyhd3eb1b0_0
+  - python_abi=3.12=8_cp312
   - pytz=2025.2=py312hca03da5_0
   - pyyaml=6.0.3=py312h091b9d3_0
   - pyzmq=27.1.0=py312h5a8c52c_1
@@ -182,18 +205,24 @@ dependencies:
   - rfc3339-validator=0.1.4=py312hca03da5_0
   - rfc3986-validator=0.1.1=py312hca03da5_0
   - rpds-py=0.28.0=py312h931abed_0
+  - scikit-learn=1.8.0=py312h79e0ffc_0
+  - scipy=1.16.3=py312ha6bbf71_1
   - seaborn=0.13.2=py312hca03da5_3
   - send2trash=1.8.2=py312hca03da5_1
   - setuptools=80.9.0=py312hca03da5_0
+  - simplejson=3.20.2=py312h4409184_1
   - six=1.17.0=py312hca03da5_0
   - snappy=1.2.1=h313beb8_0
   - sniffio=1.3.1=py312hca03da5_0
   - soupsieve=2.5=py312hca03da5_0
   - sqlite=3.51.0=hab6afd1_0
   - stack_data=0.6.3=py312hca03da5_0
+  - tabmat=4.1.3=py312h774262c_0
   - terminado=0.18.1=py312hca03da5_0
+  - threadpoolctl=3.6.0=pyhecae5ae_0
   - tinycss2=1.4.0=py312hca03da5_0
   - tk=8.6.15=hcd8a7d5_0
+  - tomli=2.3.0=pyhcf101f3_0
   - tornado=6.5.1=py312h80987f9_0
   - traitlets=5.14.3=py312hca03da5_0
   - typing-extensions=4.15.0=py312hca03da5_0
@@ -206,6 +235,7 @@ dependencies:
   - websocket-client=1.8.0=py312hca03da5_0
   - wheel=0.45.1=py312hca03da5_0
   - widgetsnbextension=4.0.14=py312hca03da5_0
+  - wrapt=2.0.1=py312h4409184_1
   - xz=5.6.4=h80987f9_1
   - yaml=0.2.5=h1a28f6b_0
   - zeromq=4.3.5=h2c7f8f0_1
@@ -214,16 +244,18 @@ dependencies:
   - pip:
       - build==1.3.0
       - cfgv==3.5.0
+      - dalex==1.7.2
       - distlib==0.4.0
       - filelock==3.20.0
       - identify==2.6.15
-      - iniconfig==2.3.0
+      - lightgbm==4.6.0
       - nodeenv==1.9.1
-      - pluggy==1.6.0
+      - plotly==5.24.1
       - pre-commit==4.5.0
       - pyproject-hooks==1.2.0
-      - pytest==9.0.2
       - setuptools-scm==9.2.2
+      - tenacity==9.1.2
+      - tqdm==4.67.1
       - virtualenv==20.35.4
       - yelp-predict==0.0.post1
 prefix: /opt/anaconda3/envs/yelp_predict
