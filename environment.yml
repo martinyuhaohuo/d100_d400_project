@@ -1,4 +1,4 @@
-name: yelp_predict_test
+name: yelp_predict
 channels:
   - defaults
   - conda-forge

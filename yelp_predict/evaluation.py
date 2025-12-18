@@ -5,6 +5,7 @@ from glum import BinomialDistribution
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from sklearn.inspection import permutation_importance
+from sklearn.model_selection import learning_curve, LearningCurveDisplay
 import dalex as dx
 from pandas.api.types import is_string_dtype
 from typing import Optional, List
@@ -75,18 +76,16 @@ def compute_metrics(
     Returns:
     --------
     pd.DataFrame
-        the dataframe containing mae, rmse, deviance, and bias
+        the dataframe containing mae, rmse, and bias
     """
 
     mae = mean_absolute_error(act_col, pred_col)
     rmse = mean_squared_error(act_col, pred_col)
-    deviance = compute_deviance(pred_col, act_col)
     bias = compute_bias(pred_col, act_col)
     df = pd.DataFrame()
     df["model"] = [model]
     df["mae"] = [mae]
     df["rmse"] = [rmse]
-    df["deviance"] = [deviance]
     df["bias"] = [bias]
     return df
 
@@ -127,7 +126,7 @@ def pred_vs_actual(
         x,
         y,
         facecolors="none",
-        edgecolors="grey",
+        edgecolors="steelblue",
         alpha=0.5,
     )
 
@@ -272,12 +271,12 @@ def compare_metrics_by_rating_level(
     )
     print(
         compute_metrics(
-            df_temp["predict_GLM_revert"], df_temp["avg_rating"], model="GLM"
+            df_temp["predict_GLM"], df_temp["avg_rating"], model="GLM"
         )
     )
     print(
         compute_metrics(
-            df_temp["predict_LGBM_revert"], df_temp["avg_rating"], model="LGBM"
+            df_temp["predict_LGBM"], df_temp["avg_rating"], model="LGBM"
         )
     )
 
@@ -303,11 +302,62 @@ def compare_metrics_by_cat(df_test: pd.DataFrame, category: str) -> None:
     print(f"Metrics for category: {category}")
     print(
         compute_metrics(
-            df_temp["predict_GLM_revert"], df_temp["avg_rating"], model="GLM"
+            df_temp["predict_GLM"], df_temp["avg_rating"], model="GLM"
         )
     )
     print(
         compute_metrics(
-            df_temp["predict_LGBM_revert"], df_temp["avg_rating"], model="LGBM"
+            df_temp["predict_LGBM"], df_temp["avg_rating"], model="LGBM"
         )
     )
+
+
+def learning_curve_plot(
+    model_pipeline: Pipeline,
+    model: str,
+    dataset: pd.DataFrame,
+    y: pd.Series,
+    save_path: Optional[Path] = None,
+) -> None:
+    """
+    This function plots learning curve for selected model
+
+    Parameters:
+    -----------
+    model_pipeline : Pipeline
+        the fitted best model pipeline
+    model : str
+        the model name
+    dataset : pd.DataFrame
+        the whole dataset
+    y : pd.Series
+        the target of whole dataset
+    save_path : Path
+        the path where plots will be saved
+
+    Returns
+    -------
+    None
+        the function save plots to path
+    """
+
+    plt.figure(figsize=(7, 4))
+
+    train_sizes, train_scores, test_scores = learning_curve(
+        model_pipeline, dataset, y, scoring="neg_mean_squared_error"
+    )
+    display = LearningCurveDisplay(
+        train_sizes=train_sizes,
+        train_scores=train_scores,
+        test_scores=test_scores,
+        score_name="Negative MSE",
+    )
+    display.plot()
+
+    plt.title(f"Learning Curve By {model}")
+
+    if save_path is not None:
+        filename = f"learning_curve_{model}.png"
+        plt.savefig(save_path / filename, dpi=300, bbox_inches="tight")
+
+    plt.show()

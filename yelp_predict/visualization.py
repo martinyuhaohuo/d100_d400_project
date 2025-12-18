@@ -152,7 +152,7 @@ def plot_hist_by_twocategory(
     x_max = df2[numeric_col].max()
 
     # Plot
-    plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(7, 4))
 
     plt.hist(
         s1,
@@ -403,7 +403,7 @@ def plot_dummy_percentages(
 
     pct = pct.sort_values(ascending=False)
 
-    plt.figure(figsize=(14, 6))
+    plt.figure(figsize=(7, 5))
     plt.plot(pct.index, pct.values, linestyle="-", color="steelblue")
 
     # Horizontal threshold line
@@ -489,7 +489,7 @@ def boxplot_avg_rating_by_group(
     )
 
     # Plot
-    plt.figure(figsize=(10, max(4, len(ordered_cats) * 0.4)))
+    plt.figure(figsize=(7, max(4, len(ordered_cats) * 0.4)))
 
     df2.boxplot(
         column=rating_col,
@@ -563,14 +563,14 @@ def scatter_plot_with_reg(
     x = df2[x_col].values
     y = df2[y_col].values
 
-    plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(7, 4))
 
     # Transparent points
     plt.scatter(
         x,
         y,
         facecolors="none",  # transparent
-        edgecolors="grey",  # outline color
+        edgecolors="steelblue",  # outline color
         alpha=0.5,
     )
 
@@ -647,10 +647,10 @@ def scatter_plot_with_quad_reg(
     x = df2[x_col].values
     y = df2[y_col].values
 
-    plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(7, 4))
 
     # Transparent scatter points
-    plt.scatter(x, y, facecolors="none", edgecolors="grey", alpha=0.5)
+    plt.scatter(x, y, facecolors="none", edgecolors="steelblue", alpha=0.5)
 
     # Quadratic regression: y = a + b x + c x^2
     coeffs = np.polyfit(x, y, deg=2)  # <--- DEGREE 2
