@@ -90,7 +90,7 @@ GLM_param_grid = {
     "GLM_model__l1_ratio": [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
 }
 GLM_cv = GridSearchCV(GLM_pipeline, GLM_param_grid, cv=5)
-GLM_cv.fit(df_train, y_train)  # best params: alpha: 0.001, l1_ratio: 0.2
+GLM_cv.fit(df_train, y_train)
 
 # Hyper-parameter tuning for LGBM using grid-search
 LGBM_param_grid = {
@@ -100,9 +100,7 @@ LGBM_param_grid = {
     "LGBM_model__max_depth": [-1, 3, 5],
 }
 LGBM_cv = GridSearchCV(LGBM_pipeline, LGBM_param_grid, cv=5)
-LGBM_cv.fit(
-    df_train, y_train
-)  # best params: max_depth: -1, n_estimators: 200, num_leaves: 31, learning_rate: 0.1
+LGBM_cv.fit(df_train, y_train)
 
 
 # %%
@@ -132,7 +130,7 @@ print(
     )
 )
 
-# evaluate prediction of mean imputation (using eman from train set)
+# evaluate prediction of mean imputation (using mean from train set)
 df_test["predict_mean"] = df_train["avg_rating"].mean()
 print(
     compute_metrics(
